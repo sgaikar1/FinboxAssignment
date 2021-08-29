@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.sgaikar.finboxassignment">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
@@ -21,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.work.impl.WorkManagerInitializer"
+            android:authorities="com.sgaikar.finboxassignment.workmanager-init"
+            android:enabled="false"
+            android:exported="false"
+            tools:node="remove"
+            tools:replace="android:authorities" />
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.sgaikar.finboxassignment.di
 
 import android.content.Context
+import androidx.work.WorkerFactory
 import com.sgaikar.finboxassignment.data.local.AppDatabase
 import com.sgaikar.finboxassignment.data.local.LocationDao
 import com.sgaikar.finboxassignment.data.repository.LocationRepository
@@ -27,4 +28,10 @@ object AppModule {
     @Provides
     fun provideRepository(localDataSource: LocationDao) =
         LocationRepository(localDataSource)
+
+    @Singleton
+    @Provides
+    fun workerFactory(localDataSource: LocationDao): WorkerFactory {
+        return DaggerWorkerFactory(localDataSource)
+    }
 }

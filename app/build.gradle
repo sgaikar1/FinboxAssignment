@@ -82,6 +82,10 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
     //Location
-
     implementation 'com.google.android.gms:play-services-location:18.0.0'
+
+    //WorkManager
+    def work_version = "2.5.0"
+    implementation("androidx.work:work-runtime-ktx:$work_version")
+
 }

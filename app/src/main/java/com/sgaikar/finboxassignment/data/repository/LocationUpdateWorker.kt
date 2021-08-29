@@ -13,6 +13,8 @@ import com.sgaikar.finboxassignment.utils.OnLocationReceived
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class LocationUpdateWorker constructor(appContext: Context, workerParams: WorkerParameters):
@@ -51,8 +53,10 @@ class LocationUpdateWorker constructor(appContext: Context, workerParams: Worker
         val task = fusedLocationProviderClient.lastLocation
         task.addOnSuccessListener { location ->
             if (location != null){
+                val currentDateTime: String =
+                    SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(Date())
                 val location = LocationObj(
-                    System.currentTimeMillis(),
+                    currentDateTime,
                     location.latitude,
                     location.longitude
                 )

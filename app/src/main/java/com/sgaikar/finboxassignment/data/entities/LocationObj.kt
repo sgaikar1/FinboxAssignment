@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "UserLocations")
 data class LocationObj(
     @PrimaryKey
-    val timeStamp: Long,
+    val timeStamp: String,
     val latitude: Double,
     val longitude: Double,
 )

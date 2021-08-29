@@ -38,7 +38,7 @@ class LocationsViewModel @Inject constructor(
     }
 
     fun fetchLocationFromDevice(){
-        val periodicWork = PeriodicWorkRequest.Builder(LocationUpdateWorker::class.java, 5, TimeUnit.SECONDS)
+        val periodicWork = PeriodicWorkRequest.Builder(LocationUpdateWorker::class.java, 1, TimeUnit.HOURS)
             .build()
         WorkManager.getInstance().enqueue(periodicWork)
     }
